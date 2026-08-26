@@ -7,3 +7,6 @@ def test_taxa_com_todos_acertos():
 
 def test_taxa_com_metade():
     assert taxa_de_acerto([1, 0, 1, 0]) == 0.5
+
+def test_taxa_com_lista_vazia():
+    assert taxa_de_acerto([]) == 0.0
