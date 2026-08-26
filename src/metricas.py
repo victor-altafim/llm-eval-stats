@@ -10,6 +10,6 @@ def taxa_de_acerto(acertos: list[int]) -> float:
     Returns:
         float: Taxa de acerto.
     """
-    # if not acertos:
-    #   return 0.0
+    if not acertos:
+       return 0.0
     return sum(acertos) / len(acertos)
