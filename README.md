@@ -12,3 +12,11 @@ Em construção. Registro público do desenvolvimento, commit a commit.
 
 ## Autor
 Victor Altafim — estudante de Estatística, UFMG.
+
+## Ambiente
+
+O projeto usa ambiente virtual (`.venv`), não versionado.
+Para reconstruí-lo no Windows:
+
+    python -m venv .venv
+    .venv\Scripts\activate
