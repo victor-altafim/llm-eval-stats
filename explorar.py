@@ -6,3 +6,6 @@ print(dados.head())
 print(dados.shape)
 print(dados.dtypes)
 print(dados["acertou"].sum())
+
+resumo = dados.groupby("prompt")["acertou"].agg(["sum", "count", "mean"])
+print(resumo)
