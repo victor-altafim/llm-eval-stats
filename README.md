@@ -35,6 +35,14 @@ python gerar_dados.py
 python main.py
 pytest
 ````
+## Status
+
+Versão `v0.1.0`. Escopo fechado: geração de dados sintéticos com taxa de
+acerto conhecida, cálculo de proporção observada e intervalo de confiança
+de Wilson, com suíte de testes cobrindo casos de borda.
+
+A comparação formal entre os dois prompts (teste de hipótese e cálculo de
+tamanho amostral) é o escopo da próxima versão.
 
 ## Roadmap
 
