@@ -1,4 +1,5 @@
-from src.metricas import intervalo_wilson, taxa_de_acerto
+from llm_eval_stats.metricas import taxa_de_acerto
+from llm_eval_stats.metricas import intervalo_wilson
 
 
 def test_taxa_com_todos_acertos():

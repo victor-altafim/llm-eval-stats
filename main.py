@@ -1,6 +1,6 @@
 import pandas as pd
 
-from src.metricas import intervalo_wilson, taxa_de_acerto
+from llm_eval_stats.metricas import intervalo_wilson, taxa_de_acerto
 
 dados = pd.read_csv("avaliacoes.csv")
 
