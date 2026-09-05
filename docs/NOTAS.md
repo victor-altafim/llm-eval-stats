@@ -12,3 +12,8 @@ do pre-registro nem sempre existe.
 Topo: meta, models. Cada modelo: rank, model, vendor, license, score,
 ci, votes. A incerteza vem como um valor unico (`ci`), que e a
 meia-largura do IC 95%. Nao vem como par de limites.
+
+## Pendência: top 30 do pré-registro vs. tamanho real do snapshot
+
+Os snapshots do Arena baixados até aqui trazem ~10 modelos, não 30.
+O pré-registro (H1) fala em "top 30". Decisão adiada.
