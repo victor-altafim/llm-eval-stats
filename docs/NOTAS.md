@@ -17,3 +17,15 @@ meia-largura do IC 95%. Nao vem como par de limites.
 
 Os snapshots do Arena baixados até aqui trazem ~10 modelos, não 30.
 O pré-registro (H1) fala em "top 30". Decisão adiada.
+
+## Premissas do teste de diferença
+
+- **SE derivado do IC publicado.** Assume aproximação normal e IC simétrico:
+  SE = meia-largura / 1,96. Se o IC do Arena for assimétrico, essa conversão
+  perde informação.
+- **Independência entre os scores de dois modelos.** Falsa a rigor: o Arena
+  estima todos os scores conjuntamente, a partir do mesmo conjunto de batalhas
+  compartilhadas. Ignorar a covariância entre estimativas tende a inflar o SE
+  da diferença, deixando o teste conservador.
+- **O IC do Arena vem de bootstrap** sobre o modelo Bradley-Terry, não de uma
+  fórmula fechada. Tratá-lo como IC normal simétrico é uma aproximação.
