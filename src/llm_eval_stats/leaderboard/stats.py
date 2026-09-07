@@ -20,3 +20,7 @@ def z_diff(score_a: float, se_a: float, score_b: float, se_b: float) -> float:
 def p_two_sided(z: float) -> float:
     """[sua frase: o que esse número significa]"""
     return 2 * (1 - norm.cdf(abs(z)))
+
+def intervals_overlap(a_lo: float, a_hi: float, b_lo: float, b_hi: float) -> bool:
+    """True se os dois intervalos se sobrepõem. Sobreposição NÃO implica p >= 0,05."""
+    return not (a_hi < b_lo or b_hi < a_lo)

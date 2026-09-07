@@ -29,3 +29,29 @@ O pré-registro (H1) fala em "top 30". Decisão adiada.
   da diferença, deixando o teste conservador.
 - **O IC do Arena vem de bootstrap** sobre o modelo Bradley-Terry, não de uma
   fórmula fechada. Tratá-lo como IC normal simétrico é uma aproximação.
+
+
+## A falácia da sobreposição
+
+Exemplo numérico (IC 95%):
+
+- Modelo A: 10,0 ± 1,5  ->  IC [8,5 ; 11,5]
+- Modelo B:  7,5 ± 1,5  ->  IC [6,0 ;  9,0]
+
+Os intervalos se sobrepõem no trecho [8,5 ; 9,0]. Mesmo assim:
+
+- SE de cada um = 1,5 / 1,96 ~= 0,765
+- SE da diferença = raiz(0,765^2 + 0,765^2) ~= 1,082
+- z = (10,0 - 7,5) / 1,082 ~= 2,31
+- p bilateral ~= 0,021
+
+Dois IC 95% podem se sobrepor e a diferença ainda ser significativa a 5%.
+O critério correto não é sobreposição, é o teste da diferença.
+
+Motivo: julgar por sobreposição exige que a distância supere z*(SE_a + SE_b),
+a soma das margens. O teste correto exige que supere z*raiz(SE_a^2 + SE_b^2),
+a soma em quadratura, que é sempre menor. Sobreposição é conservadora demais.
+
+A recíproca vale: se os intervalos NÃO se sobrepõem, a diferença é
+significativa. Por isso `intervals_overlap` fica como diagnóstico descritivo,
+nunca como critério de decisão.
