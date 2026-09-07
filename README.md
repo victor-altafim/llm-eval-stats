@@ -44,6 +44,46 @@ de Wilson, com suíte de testes cobrindo casos de borda.
 A comparação formal entre os dois prompts (teste de hipótese e cálculo de
 tamanho amostral) é o escopo da próxima versão.
 
+## Fase 2 — Auditoria estatística de leaderboards
+
+**Quanto do movimento de um leaderboard de LLM é ruído?**
+
+Leaderboards publicam um ranking e as pessoas leem "o modelo #3 é melhor que
+o #4". Cada score, porém, vem com uma barra de erro, e no topo dos rankings
+os modelos estão a poucos pontos uns dos outros. Esta fase mede quantas
+dessas diferenças são estatisticamente distinguíveis de nada.
+
+Hipóteses e critérios foram fixados antes de olhar os dados:
+[docs/PREREGISTRO.md](docs/PREREGISTRO.md).
+
+### Método
+
+1. O erro padrão de cada modelo é derivado da meia-largura do IC 95%
+   publicado pelo Arena: `SE = meia-largura / 1,96`.
+2. A diferença entre dois modelos é testada por
+   `z = (score_a - score_b) / raiz(SE_a^2 + SE_b^2)`, bilateral, alfa = 0,05.
+3. Sobreposição de intervalos **não** é usada como critério de decisão —
+   dois IC 95% podem se sobrepor e a diferença ainda ser significativa
+   (demonstração numérica em [docs/NOTAS.md](docs/NOTAS.md), com teste
+   automatizado que documenta a propriedade).
+
+### Resultado da v0.1 — snapshot de 2026-01-09
+
+Nem o par #1/#2 (p = 0,540) nem o par #3/#4 (p = 0,467) do leaderboard de
+texto são distinguíveis a 5%. Detalhes e limitações em
+[docs/RESULTADOS.md](docs/RESULTADOS.md).
+
+### Premissas declaradas
+
+- O SE derivado do IC publicado assume normalidade e simetria do intervalo.
+- Assume-se independência entre os scores de dois modelos. Isso é falso a
+  rigor: o Arena estima todos os scores conjuntamente, a partir de batalhas
+  compartilhadas. A correção exigiria reanalisar os votos individuais.
+- O IC publicado pelo Arena vem de bootstrap sobre o modelo Bradley-Terry.
+
+Trabalho relacionado e em que este projeto difere:
+[docs/RELATED_WORK.md](docs/RELATED_WORK.md).
+
 ## Roadmap
 
 - [ ] Teste de hipótese para diferença entre duas proporções
