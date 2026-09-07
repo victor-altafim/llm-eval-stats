@@ -55,3 +55,9 @@ a soma em quadratura, que é sempre menor. Sobreposição é conservadora demais
 A recíproca vale: se os intervalos NÃO se sobrepõem, a diferença é
 significativa. Por isso `intervals_overlap` fica como diagnóstico descritivo,
 nunca como critério de decisão.
+
+## Versionamento
+
+A Fase 1 encerrou em `v0.1.0`. As versões da Fase 2 são chamadas de v0.1 a
+v0.4 nos documentos, mas as tags do Git seguem semver a partir da anterior:
+v0.1 -> v0.2.0, v0.2 -> v0.3.0, v0.3 -> v0.4.0, v0.4 -> v0.5.0.
